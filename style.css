@@ -46,6 +46,9 @@ button:hover{
     letter-spacing: 5px;
     margin-bottom: 20px;
 }
+.inputSection{
+    display:flex;
+}
 textarea{
     width: 100%;
     padding: 10px;
