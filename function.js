@@ -58,8 +58,8 @@ document.getElementById("decodeSubmit").addEventListener("click",()=>{
     const text = document.getElementById("Decodetext").value;
     // const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     // const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-    const input =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !@#$%^&*()_<>,.-+*/?={}[]';
-    const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm !@#$%^&*()_<>,.-+*/?={}[]';
+    const input =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !@#$%^&*()_<>,.-+*/?={}[]:';
+    const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm !@#$%^&*()_<>,.-+*/?={}[];';
     const input2 =  '01234567895678901234';
     const output2 = '56789012340123456789';
     let decodeResult2="";
