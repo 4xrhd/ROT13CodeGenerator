@@ -39,12 +39,44 @@ button:hover{
     transition: 0.5s;
     transform: translateY(-5px);
 }
+.copy:active{
+    background: #809ce2;
+}
+.copy::before{
+    content: "Copied";
+    position: absolute;
+    top:-45px;
+    right: 0px;
+    background: linear-gradient(90deg, gray, black);
+    padding: 8px 10px;
+    border-radius: 10px;
+    display: none;
+    z-index: 1;
+}
+.copy:after{
+    content: "";
+    background: linear-gradient(90deg, gray, black);
+    position: absolute;
+    top:-15px;
+    right: 25px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    display: none;
+}
+.copy:active:before,.copy:active:after{
+    display: block;
+}
 .result,.result1{
     background-color: darkgray;
     color: black;
     padding: 10px;
     letter-spacing: 5px;
     margin-bottom: 20px;
+}
+.lastButton{
+    display: flex;
+    justify-content: space-evenly;
 }
 .inputSection{
     display: flex;
