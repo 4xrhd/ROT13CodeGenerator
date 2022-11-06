@@ -11,12 +11,23 @@ document.getElementById("makeaCode").addEventListener("click",()=>{
 document.getElementById("CodeSubmit").addEventListener("click",()=>{
     document.getElementById("codeoutputSection").style.display=("block");
     const text = document.getElementById("text").value;
-    const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+    // const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    // const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+    const input =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !@#$%^&*()_<>,.-+*/?={}[]';
+    const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm !@#$%^&*()_<>,.-+*/?={}[]';
+    const input2 =  '01234567895678901234';
+    const output2 = '56789012340123456789';
     let decodeResult="";
     for(let i=0; i<text.length; i++){
+        if (input.indexOf(text[i])>=0){
         const index = input.indexOf(text[i]);
         decodeResult += output[index];
+        }
+        else if(input2.indexOf(text[i])>=0){
+          const index2 = input2.indexOf(text[i]);
+          decodeResult += output2[index2];
+        }
+        
     }
     
     document.getElementById("codeResult").innerHTML = "Result: "
@@ -45,12 +56,22 @@ document.getElementById("decodeaCode").addEventListener("click",()=>{
 document.getElementById("decodeSubmit").addEventListener("click",()=>{
     document.getElementById("deoutputSection").style.display=("block");
     const text = document.getElementById("Decodetext").value;
-    const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+    // const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+    // const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+    const input =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !@#$%^&*()_<>,.-+*/?={}[]';
+    const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm !@#$%^&*()_<>,.-+*/?={}[]';
+    const input2 =  '01234567895678901234';
+    const output2 = '56789012340123456789';
     let decodeResult2="";
     for(let i=0; i<text.length; i++){
-        const index = input.indexOf(text[i]);
-        decodeResult2 += output[index];
+        if (input.indexOf(text[i])>=0){
+          const index = input.indexOf(text[i]);
+          decodeResult2 += output[index];
+        }
+        else if (input2.indexOf(text[i])>=0){
+          const index2 = input2.indexOf(text[i]);
+          decodeResult2 += output2[index2];
+        }
     }
     document.getElementById("decodeResult").innerHTML = "Result: "
     document.getElementById("decodeResult1").innerHTML =  decodeResult2
