@@ -1,105 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <!-- bootstrap css linke -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"/>
-    <link rel="stylesheet" href="./style.css" />
-    <title>Rot Code Generator</title>
-  </head>
-  <body>
-    <main>
-      <div class="titleSection">
-        <h2 class="title">ROT Code generator</h2>
-        <p>
-          <b style="color:#809ce2 ;">Note:</b>
-          <code
-            >This is an application with which you can convert your clean text
-            <br />
-            into a rot code or you can decode a rot code and figure out the
-            message behind <br />
-            the code</code
-          >
-        </p>
-      </div>
-      <div class="buttonSection">
-        <button id="makeaCode" class="makeaCode">Make a Code</button>
-        <button id="decodeaCode" class="decodeaCode">Decode a Code</button>
-      </div>
-      <div class="codeSection" id="codeSection">
-        <div class="inputSection" id="codeinputSection">
-          <textarea
-            id="text"
-            maxlength="500"
-            rows="10"
-            placeholder="Enter Your Text Without space"
-          ></textarea>
-          <br />
-          <button id="CodeSubmit">submit</button>
-        </div>
-        <div class="outputSection" id="codeoutputSection">
-            <div class="copyNotification" id="copyNotification">
-                <div class="alert alert-success" role="alert">
-                    Successfully Copied!
-                </div>
-            </div>
-          <div class="result">
-            <h2 id="codeResult" class="result"></h2>
-            <h2 id="codeResult1" class="result1"></h2>
-          </div>
-          <div class="lastButton">
-            <button id="codeCopy" class="copy">Copy</button>
-            <button id="codeBack">< Back</button>
-          </div>
-        </div>
-      </div>
-      <div class="decodeSection" id="decodeSection">
-        <div class="inputSection" id="decodeinputSection">
-          <textarea
-            id="Decodetext"
-            maxlength="500"
-            rows="10"
-            placeholder="Enter Your Code Without space"
-          ></textarea>
-          <br />
-          <button id="decodeSubmit">submit</button>
-        </div>
-        <div class="deoutputSection" id="deoutputSection">
-            <div class="copyNotification" id="copyNotification2">
-                <div class="alert alert-success" role="alert">
-                    Successfully Copied!
-                </div>
-            </div>
-          <div class="result">
-            <h2 id="decodeResult" class="result"></h2>
-            <h2 id="decodeResult1" class="result1"></h2>
-          </div>
-          <div class="lastButton">
-            <button id="decodeCopy" class="copy">Copy</button>
-            <button id="deCodeback">< Back</button>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-      Designed and Developed by <a href="" target="_blank">Jobayer Rahman</a>
-    </footer>
-    <!-- script links -->
-    <script src="./function.js"></script>
-    <!-- bootstrap js links -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+document.getElementById("codeSection").style.display=("none");
+document.getElementById("decodeSection").style.display=("none");
+document.getElementById('copyNotification').style.display=('none');
+document.getElementById('copyNotification2').style.display=('none');
+//make a code Function
+document.getElementById("makeaCode").addEventListener("click",()=>{
+    document.getElementById("codeSection").style.display=("block");
+    document.getElementById("makeaCode").style.display=("none");
+    document.getElementById("decodeaCode").style.display=("none");
+    document.getElementById("codeoutputSection").style.display=("none");
+})
+// making the code
+document.getElementById("CodeSubmit").addEventListener("click",()=>{
+    document.getElementById("codeoutputSection").style.display=("block");
+    const text = document.getElementById("text").value;
+    // const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    // const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+    const input =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !@#$%^&*()_<>,.-+*/?={}[]:';
+    const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm !@#$%^&*()_<>,.-+*/?={}[]:';
+    const input2 =  '01234567895678901234';
+    const output2 = '56789012340123456789';
+    let decodeResult="";
+    for(let i=0; i<text.length; i++){
+        if (input.indexOf(text[i])>=0){
+        const index = input.indexOf(text[i]);
+        decodeResult += output[index];
+        }
+        else if(input2.indexOf(text[i])>=0){
+          const index2 = input2.indexOf(text[i]);
+          decodeResult += output2[index2];
+        }
+        
+    }
+    
+    document.getElementById("codeResult").innerHTML = "Result: "
+    document.getElementById("codeResult1").innerHTML =  decodeResult
+    document.getElementById("codeinputSection").style.display=("none");
+})
+//code Copy
+document.getElementById("codeCopy").addEventListener("click", ()=>{
+    const text = document.getElementById("codeResult1").innerHTML  
+    navigator.clipboard.writeText(text);
+    document.getElementById('copyNotification').style.display=('block');
+    setTimeout(()=>{
+        document.getElementById('copyNotification').style.display=('none');
+    },1000)
+})
+// make a code back button
+document.getElementById("codeBack").addEventListener("click" ,()=>{
+    location.reload();
+})
 
-  </body>
-</html>
+//Decode a code function
+document.getElementById("decodeaCode").addEventListener("click",()=>{
+    document.getElementById("decodeSection").style.display=("block");
+    document.getElementById("decodeaCode").style.display=("none");
+    document.getElementById("makeaCode").style.display=("none");
+    document.getElementById("deoutputSection").style.display=("none");
+})
+
+// Decoding the code
+document.getElementById("decodeSubmit").addEventListener("click",()=>{
+    document.getElementById("deoutputSection").style.display=("block");
+    const text = document.getElementById("Decodetext").value;
+    // const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+    // const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+    const input =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !@#$%^&*()_<>,.-+*/?={}[]:';
+    const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm !@#$%^&*()_<>,.-+*/?={}[];';
+    const input2 =  '01234567895678901234';
+    const output2 = '56789012340123456789';
+    let decodeResult2="";
+    for(let i=0; i<text.length; i++){
+        if (input.indexOf(text[i])>=0){
+          const index = input.indexOf(text[i]);
+          decodeResult2 += output[index];
+        }
+        else if (input2.indexOf(text[i])>=0){
+          const index2 = input2.indexOf(text[i]);
+          decodeResult2 += output2[index2];
+        }
+    }
+    document.getElementById("decodeResult").innerHTML = "Result: "
+    document.getElementById("decodeResult1").innerHTML =  decodeResult2
+    document.getElementById("decodeinputSection").style.display=("none");
+})
+
+//code Copy
+document.getElementById("decodeCopy").addEventListener("click", ()=>{
+    const text = document.getElementById("decodeResult1").innerHTML;  
+    navigator.clipboard.writeText(text);
+    document.getElementById('copyNotification2').style.display=('block');
+    setTimeout(()=>{
+        document.getElementById('copyNotification2').style.display=('none');
+    },1000)
+    
+})
+
+// make a Decode back button
+document.getElementById("deCodeback").addEventListener("click" ,()=>{
+    location.reload();
+})
