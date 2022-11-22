@@ -3,8 +3,10 @@ html{
     padding: 0%;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-    background-color: rgba(10, 10, 10, 0.836);
     color: white;
+}
+body{
+    background-color: rgba(10, 10, 10, 0.836);
 }
 main{
     min-height: 94vh;
@@ -16,6 +18,7 @@ main{
 .title{
     font-weight: 800;
     letter-spacing: 2px;
+    color: #809ce2;
 }
 .titleSection{
     text-align: center;
@@ -100,6 +103,7 @@ textarea{
 footer{
     text-align: center;
     animation: footeranimation 5s;
+    color: #809ce2;
 }
 @keyframes footeranimation {
     0%{transform: rotate(0deg); color: crimson;}
